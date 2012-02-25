@@ -1,0 +1,11 @@
+﻿<Window x:Class="TaskPanel.UI.DetailWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:ui="clr-namespace:TaskPanel.UI.Controls"
+        Title="{Binding Task.Content}" Icon="/TaskPanel.UI;component/TaskPanel.ico"
+        Closing="Window_Closing">
+    <Border Style="{StaticResource windowBorder}" Padding="5" Background="White" BorderThickness="3" BorderBrush="#6C6C6C">
+        <ui:TaskDetail x:Name="tskDetail" Task="{Binding Task}" TaskStates="{Binding TaskStates}" Groups="{Binding Groups}"
+         SaveClick="tskDetail_SaveClick" CloseClick="tskDetail_CloseClick" />
+    </Border>
+</Window>

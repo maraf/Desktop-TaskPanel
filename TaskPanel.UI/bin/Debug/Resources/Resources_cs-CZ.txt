@@ -1,0 +1,60 @@
+﻿Common.Name=Jméno
+Common.Priority=Priorita
+
+Label.Name=Jméno:
+Label.Priority=Priorita:
+Label.Image=Obrázek:
+
+Label.Created=Vytvořeno:
+Label.Modified=Upraveno:
+Label.Deadline=K dokončení:
+Label.Content=Obsah:
+Label.Solution=Řešení:
+Label.Flag=Příznak:
+
+Button.Create=_Vytvořit
+Button.Delete=_Smazat
+Button.Save=_Uložit
+Button.Close=_Zavřít
+
+Sort.Ascending=Dopředně
+Sort.Descending=Zpětně
+Sort.Content=Podle obsahu
+Sort.Created=Podle data vytvoření
+Sort.Modified=Podle data aktualizace
+Sort.Priority=Podle priority
+
+Task.State=Stav:
+Task.Group=Skupina:
+
+TaskStateFlag.None=Žádný
+TaskStateFlag.Initial=Výchozí
+TaskStateFlag.Completed=Dokončený
+GroupFlag.None=Žádný
+GroupFlag.Inbox=Inbox
+
+Conf.Title=TaskPanel :: Configuration
+Conf.Visuals=Zobrazení a chování
+Conf.VisualsToolTip=Nastavení pro zobrazení oken, jeji chování a další
+Conf.Language=Jazyk
+Conf.WindowBehavior=Chování okna:
+Conf.TaskDetail=Detail úkolu:
+Conf.GroupsSort=Řadit skupiny podle:
+Conf.ShowInTaskBar=Zobrazit TaskPanel na hlavní liště
+Conf.ShowInWindowList=Zobrazt TaskPanel v seznamu oken (při stisknutém Alt+Tab)
+Conf.ShowInTray=Zobrazit pro TaskPanel tray ikonu
+Conf.ShowTaskInNewWindow=Zobrazit detail úkolu v novém okně
+Conf.ConfFile=Konfigurace
+Conf.CopyConfFile=Kopírovat
+Conf.CopyConfFileHint=Kopírovat konfigurační soubor do schránky
+Conf.DeleteConfFile=Smazat
+Conf.DeleteConfFileHint=Smazat konfigurační soubor (NE soubor s úkolama)
+
+Conf.Groups=Skupiny úkolů
+Conf.GroupsToolTip=Vytvořit, upravit nebo smazat skupiny ůkolů
+
+Conf.States=Stavy úkolů
+Conf.StatesToolTip=Vytvořit, upravit nebo smazat stavy úkolů
+
+Conf.About=O TaskPanelu
+Conf.AboutToolTip=O aplikaci TaskPanel

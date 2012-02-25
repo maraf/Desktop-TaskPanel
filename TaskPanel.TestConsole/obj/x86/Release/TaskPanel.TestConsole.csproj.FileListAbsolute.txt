@@ -1,0 +1,15 @@
+D:\Projects\VS10\Projects\TaskPanel\TaskPanel.TestConsole\bin\Release\TaskPanel.TestConsole.exe.config
+D:\Projects\VS10\Projects\TaskPanel\TaskPanel.TestConsole\bin\Release\TaskPanel.TestConsole.exe
+D:\Projects\VS10\Projects\TaskPanel\TaskPanel.TestConsole\bin\Release\TaskPanel.TestConsole.pdb
+D:\Projects\VS10\Projects\TaskPanel\TaskPanel.TestConsole\bin\Release\DesktopCore.dll
+D:\Projects\VS10\Projects\TaskPanel\TaskPanel.TestConsole\bin\Release\DesktopCore.Resources.dll
+D:\Projects\VS10\Projects\TaskPanel\TaskPanel.TestConsole\bin\Release\TaskPanel.Core.dll
+D:\Projects\VS10\Projects\TaskPanel\TaskPanel.TestConsole\bin\Release\Ninject.dll
+D:\Projects\VS10\Projects\TaskPanel\TaskPanel.TestConsole\bin\Release\DesktopCore.Resources.pdb
+D:\Projects\VS10\Projects\TaskPanel\TaskPanel.TestConsole\bin\Release\DesktopCore.pdb
+D:\Projects\VS10\Projects\TaskPanel\TaskPanel.TestConsole\bin\Release\TaskPanel.Core.pdb
+D:\Projects\VS10\Projects\TaskPanel\TaskPanel.TestConsole\bin\Release\Ninject.pdb
+D:\Projects\VS10\Projects\TaskPanel\TaskPanel.TestConsole\bin\Release\Ninject.xml
+D:\Projects\VS10\Projects\TaskPanel\TaskPanel.TestConsole\obj\x86\Release\ResolveAssemblyReference.cache
+D:\Projects\VS10\Projects\TaskPanel\TaskPanel.TestConsole\obj\x86\Release\TaskPanel.TestConsole.exe
+D:\Projects\VS10\Projects\TaskPanel\TaskPanel.TestConsole\obj\x86\Release\TaskPanel.TestConsole.pdb

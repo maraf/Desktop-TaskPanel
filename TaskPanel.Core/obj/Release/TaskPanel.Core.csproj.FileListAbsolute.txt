@@ -1,0 +1,12 @@
+D:\Projects\VS10\Projects\TaskPanel\TaskPanel.Core\bin\Release\TaskPanel.Core.dll
+D:\Projects\VS10\Projects\TaskPanel\TaskPanel.Core\bin\Release\TaskPanel.Core.pdb
+D:\Projects\VS10\Projects\TaskPanel\TaskPanel.Core\bin\Release\DesktopCore.dll
+D:\Projects\VS10\Projects\TaskPanel\TaskPanel.Core\bin\Release\DesktopCore.Resources.dll
+D:\Projects\VS10\Projects\TaskPanel\TaskPanel.Core\bin\Release\Ninject.dll
+D:\Projects\VS10\Projects\TaskPanel\TaskPanel.Core\bin\Release\DesktopCore.Resources.pdb
+D:\Projects\VS10\Projects\TaskPanel\TaskPanel.Core\bin\Release\DesktopCore.pdb
+D:\Projects\VS10\Projects\TaskPanel\TaskPanel.Core\bin\Release\Ninject.pdb
+D:\Projects\VS10\Projects\TaskPanel\TaskPanel.Core\bin\Release\Ninject.xml
+D:\Projects\VS10\Projects\TaskPanel\TaskPanel.Core\obj\Release\ResolveAssemblyReference.cache
+D:\Projects\VS10\Projects\TaskPanel\TaskPanel.Core\obj\Release\TaskPanel.Core.dll
+D:\Projects\VS10\Projects\TaskPanel\TaskPanel.Core\obj\Release\TaskPanel.Core.pdb

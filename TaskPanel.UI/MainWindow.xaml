@@ -1,0 +1,220 @@
+﻿<Window x:Class="TaskPanel.UI.MainWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:ui="clr-namespace:TaskPanel.UI.Controls"
+        xmlns:c="clr-namespace:DesktopCore;assembly=DesktopCore.Resources"
+        mc:Ignorable="d"
+        Title="TaskPanel" Height="500" Width="700" Closing="Window_Closing" Icon="/TaskPanel.UI;component/TaskPanel.ico"
+        ShowInTaskbar="{Binding Configuration.ShowInTaskbar}" WindowStyle="{Binding Configuration.ShowInWindowList, Converter={StaticResource boolToWindowStyle}}">
+    <Window.InputBindings>
+        <KeyBinding Key="S" Modifiers="Control" Command="ApplicationCommands.Save" />
+        <KeyBinding Key="Z" Modifiers="Control" Command="ApplicationCommands.Properties" />
+    </Window.InputBindings>
+    <Window.CommandBindings>
+        <CommandBinding Command="ApplicationCommands.Save" Executed="btnSave_Click" />
+        <CommandBinding Command="ApplicationCommands.Properties" Executed="btnSettings_Click" />
+    </Window.CommandBindings>
+    <Border Style="{StaticResource windowBorder}">
+        <Grid>
+            <Grid Margin="10">
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="Auto" />
+                    <RowDefinition Height="Auto" />
+                    <RowDefinition />
+                    <RowDefinition Height="Auto" />
+                </Grid.RowDefinitions>
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition />
+                    <ColumnDefinition Width="150" />
+                </Grid.ColumnDefinitions>
+                <Grid IsEnabled="{Binding ControlsEnabled}" Grid.Row="1">
+                    <StackPanel Orientation="Horizontal">
+                        <Button x:Name="btnCreateTask" Click="btnCreateTask_Click" Style="{StaticResource button}" Margin="0,0,5,0">
+                            <StackPanel Orientation="Horizontal">
+                                <Image Source="/TaskPanel.UI;component/Images/Add.png" Height="16" />
+                                <Label Target="{Binding btnCreateTask}" Content="_Create" Margin="5,0,0,0" Padding="0" 
+                                 Visibility="{Binding Configuration.ShowButtonsText, Converter={StaticResource boolToVisibility}}" />
+                            </StackPanel>
+                        </Button>
+                    </StackPanel>
+                    <StackPanel Orientation="Horizontal" HorizontalAlignment="Right">
+                        <Button x:Name="btnEditTask" Click="btnEditTask_Click" Style="{StaticResource button}">
+                            <StackPanel Orientation="Horizontal">
+                                <Image Source="/TaskPanel.UI;component/Images/Edit.png" Height="16" />
+                                <Label Target="{Binding btnEditTask}" Content="_Edit" Margin="5,0,0,0" Padding="0" 
+                                 Visibility="{Binding Configuration.ShowButtonsText, Converter={StaticResource boolToVisibility}}" />
+                            </StackPanel>
+                        </Button>
+                        <Button x:Name="btnDeleteTask" Click="btnDeleteTask_Click" Style="{StaticResource button}" Margin="5,0,0,0">
+                            <StackPanel Orientation="Horizontal">
+                                <Image Source="/TaskPanel.UI;component/Images/Delete.png" Height="16" />
+                                <Label Target="{Binding btnDeleteTask}" Content="_DELETE" Margin="5,0,0,0" Padding="0" 
+                                 Visibility="{Binding Configuration.ShowButtonsText, Converter={StaticResource boolToVisibility}}" />
+                            </StackPanel>
+                        </Button>
+                    </StackPanel>
+                </Grid>
+                <Grid Grid.Column="1" Grid.Row="1">
+                    <StackPanel Orientation="Horizontal" HorizontalAlignment="Right" IsEnabled="{Binding ControlsEnabled}">
+                        <Button x:Name="btnSave" Click="btnSave_Click" MouseRightButtonDown="btnSave_MouseRightButtonDown" Style="{StaticResource button}" Margin="5,0,0,0">
+                            <StackPanel Orientation="Horizontal">
+                                <Image Source="/TaskPanel.UI;component/Images/Save.png" Height="16" />
+                            </StackPanel>
+                        </Button>
+                        <Button x:Name="btnRefresh" Click="btnRefresh_Click" Style="{StaticResource button}" Margin="5,0,0,0" IsEnabled="False">
+                            <StackPanel Orientation="Horizontal">
+                                <Image Source="/TaskPanel.UI;component/Images/Refresh.png" Height="16" />
+                            </StackPanel>
+                        </Button>
+                        <Button x:Name="btnSettings" Click="btnSettings_Click" Style="{StaticResource button}" Margin="5,0,0,0">
+                            <StackPanel Orientation="Horizontal">
+                                <Image Source="/TaskPanel.UI;component/Images/Config.png" Height="16" />
+                            </StackPanel>
+                        </Button>
+                    </StackPanel>
+                </Grid>
+                <Border Style="{StaticResource border}" Margin="0,5,0,0" Grid.Row="2">
+                    <DockPanel>
+                        <ItemsControl ItemsSource="{Binding Sorts}" Visibility="{Binding ControlsEnabled, Converter={StaticResource boolToVisibility}}" DockPanel.Dock="Top">
+                            <ItemsControl.ItemsPanel>
+                                <ItemsPanelTemplate>
+                                    <StackPanel Orientation="Horizontal" HorizontalAlignment="Center" Margin="4,2" />
+                                </ItemsPanelTemplate>
+                            </ItemsControl.ItemsPanel>
+                            <ItemsControl.ItemTemplate>
+                                <DataTemplate>
+                                    <Button Click="btnSort_Click" Tag="{Binding}" Style="{StaticResource sortButton}">
+                                        <StackPanel Orientation="Horizontal">
+                                            <TextBlock Text="{Binding Caption}" Margin="0,0,1,0" />
+                                            <Image Source="/TaskPanel.UI;component/Images/ArrowDown.png" Width="7" Height="4" Visibility="{Binding SortedAscending, Converter={StaticResource boolToVisibility}}" />
+                                            <Image Source="/TaskPanel.UI;component/Images/ArrowUp.png" Width="7" Height="4" Visibility="{Binding SortedDescending, Converter={StaticResource boolToVisibility}}" />
+                                        </StackPanel>
+                                    </Button>
+                                </DataTemplate>
+                            </ItemsControl.ItemTemplate>
+                        </ItemsControl>
+                        <Grid Margin="2" Visibility="{Binding ControlsEnabled, Converter={StaticResource boolToVisibility}}" DockPanel.Dock="Bottom">
+                            <Grid.ColumnDefinitions>
+                                <ColumnDefinition />
+                                <ColumnDefinition Width="100" />
+                            </Grid.ColumnDefinitions>
+                            
+                            <Slider Style="{StaticResource priority}" Value="{Binding Configuration.MinimumPriority}" Grid.Column="1" />
+                        </Grid>
+                        <Grid>
+                            <ListView x:Name="lvwTasks" ItemsSource="{Binding Tasks}" MouseDoubleClick="lvwTasks_MouseDoubleClick" Style="{StaticResource taskPanel}" ItemContainerStyle="{StaticResource taskItem}" Margin="5">
+                                <!--<ListView.GroupStyle>
+                                    <GroupStyle>
+                                        <GroupStyle.HeaderTemplate>
+                                            <DataTemplate>
+                                                <Border BorderBrush="Black" BorderThickness="1,1,0,0" Padding="10,2,2,2" Margin="2" CornerRadius="5,0,0,0">
+                                                    <TextBlock Text="{Binding Path=Name}" FontWeight="Bold" />
+                                                </Border>
+                                            </DataTemplate>
+                                        </GroupStyle.HeaderTemplate>
+                                    </GroupStyle>
+                                </ListView.GroupStyle>-->
+                                <ListView.ItemTemplate>
+                                    <DataTemplate>
+                                        <StackPanel Orientation="Horizontal">
+                                            <Button x:Name="btnCompleteTask" ToolTip="Complete" Click="btnCompleteTask_Click" Tag="{Binding}" Style="{StaticResource plainButton}">
+                                                <Image Source="{Binding State.Image}" Height="20" VerticalAlignment="Top" />
+                                            </Button>
+                                            <Grid Width="{Binding ElementName=lvwTasks, Path=ActualWidth, Converter={StaticResource taskPanelWrap}}" Margin="5,0,0,0">
+                                                <TextBlock Text="{Binding Content}" TextWrapping="WrapWithOverflow" />
+                                            </Grid>
+                                        </StackPanel>
+                                    </DataTemplate>
+                                </ListView.ItemTemplate>
+                            </ListView>
+                            <ui:TaskDetail x:Name="tskDetail" Task="{Binding EditedTask}" TaskStates="{Binding TaskStates}" Groups="{Binding Groups}" 
+                             SaveClick="btnSaveTask_Click" CloseClick="btnCloseTask_Click" Visibility="Hidden" />
+                        </Grid>
+                    </DockPanel>
+                </Border>
+                <DockPanel IsEnabled="{Binding ControlsEnabled}" Grid.Column="1" Grid.Row="2">
+                    <ToggleButton x:Name="btnAllTasks" Click="btnAllTasks_Click" 
+                     IsChecked="{Binding SelectedGroup, Converter={StaticResource iNullToBool}, Mode=OneWay}" 
+                     Visibility="{Binding Configuration.ShowGroupAll, Converter={StaticResource boolToVisibility}}"
+                     Style="{StaticResource groupButton}" Margin="0,10,0,0" DockPanel.Dock="Top">
+                        <StackPanel Orientation="Horizontal" Margin="0,2">
+                            <Image Source="/TaskPanel.UI;component/Images/TaskList.png" Margin="5,0,0,0" Height="16" />
+                            <Label Target="{Binding btnCreateTask}" Content="{c:Resource Group.All}" />
+                        </StackPanel>
+                    </ToggleButton>
+                    <ListView x:Name="lvwGroups" ItemsSource="{Binding Groups}" SelectedItem="{Binding SelectedGroup}" SelectionChanged="lvwGroups_SelectionChanged" Width="150" 
+                     Style="{StaticResource groupMenu}" ItemContainerStyle="{StaticResource groupItem}" Margin="0,5,0,0" Background="Transparent">
+                        <ListView.ItemTemplate>
+                            <DataTemplate>
+                                <Border CornerRadius="0,5,5,0">
+                                    <StackPanel Orientation="Horizontal" Margin="0,2">
+                                        <Image Source="{Binding Image}" Margin="5,0,0,0" Height="16" />
+                                        <Label Content="{Binding Name}" />
+                                    </StackPanel>
+                                </Border>
+                            </DataTemplate>
+                        </ListView.ItemTemplate>
+                    </ListView>
+                </DockPanel>
+                <Grid Grid.Row="3" Grid.ColumnSpan="2">
+                    <ItemsControl x:Name="lvwStates" ItemsSource="{Binding CheckableTaskStates}" Style="{StaticResource baseListView}" Margin="0,5,0,0" IsEnabled="{Binding ControlsEnabled}">
+                        <ItemsControl.ItemTemplate>
+                            <DataTemplate>
+                                <CheckBox x:Name="cbxSelectState" IsChecked="{Binding IsChecked}" Checked="cbxSelectState_Checked" Unchecked="cbxSelectState_Checked" Style="{StaticResource checkBoxButton}">
+                                    <Image x:Name="Icon" Source="{Binding Data.Image}" Height="20" />
+                                </CheckBox>
+                            </DataTemplate>
+                        </ItemsControl.ItemTemplate>
+                        <ItemsControl.ItemsPanel>
+                            <ItemsPanelTemplate>
+                                <WrapPanel />
+                            </ItemsPanelTemplate>
+                        </ItemsControl.ItemsPanel>
+                    </ItemsControl>
+                    <Label x:Name="lblMessage" Content="Message ..." HorizontalAlignment="Right" Visibility="Hidden" Foreground="White" />
+                </Grid>
+            </Grid>
+            <Grid x:Name="grdLogin" Background="#66ffffff" Visibility="Collapsed">
+                <Border Width="400" Height="188" Style="{StaticResource popup}">
+                    <StackPanel Margin="15">
+                        <DockPanel>
+                            <TextBlock FontWeight="Bold" Text="Login to TaskPanel" Margin="5" />
+                        </DockPanel>
+                        <Grid>
+                            <Grid.ColumnDefinitions>
+                                <ColumnDefinition Width="80" />
+                                <ColumnDefinition />
+                            </Grid.ColumnDefinitions>
+                            <Grid.RowDefinitions>
+                                <RowDefinition />
+                                <RowDefinition />
+                                <RowDefinition />
+                                <RowDefinition />
+                            </Grid.RowDefinitions>
+                            <Label Content="File:" VerticalAlignment="Center" Grid.Column="0" Grid.Row="0" />
+                            <Label Content="Username:" VerticalAlignment="Center" Grid.Column="0" Grid.Row="1" />
+                            <Label Content="Password:" VerticalAlignment="Center" Grid.Column="0" Grid.Row="2" />
+
+                            <ui:FileTextBox FileName="{Binding UserInfo.File}" CheckFileExists="False" Margin="0,4" Grid.Column="1" Grid.Row="0" />
+                            <TextBox Text="{Binding UserInfo.UserName}" Margin="0,4" Grid.Column="1" Grid.Row="1" />
+                            <PasswordBox ui:PasswordBox.Bind="True" ui:PasswordBox.Password="{Binding UserInfo.Password, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}" Margin="0,4" Grid.Column="1" Grid.Row="2" />
+
+                            <DockPanel Grid.Column="1" Grid.Row="3">
+                                <StackPanel Orientation="Horizontal" Margin="0,4" DockPanel.Dock="Right">
+                                    <Button x:Name="btnLogin" Content="Login" Click="btnLogin_Click" Margin="0,5" Padding="5,2" />
+                                    <Button x:Name="btnRegister" Content="Register new file" Click="btnRegister_Click" Margin="5,5,0,5" Padding="5,2" />
+                                </StackPanel>
+                                <StackPanel Margin="0,4">
+                                    <CheckBox Content="Auto login" IsChecked="{Binding UserInfo.AutoLogin}" />
+                                    <CheckBox Content="Save password" IsChecked="{Binding UserInfo.SavePassword}" />
+                                </StackPanel>
+                            </DockPanel>
+                        </Grid>
+                    </StackPanel>
+                </Border>
+            </Grid>
+        </Grid>
+    </Border>
+</Window>

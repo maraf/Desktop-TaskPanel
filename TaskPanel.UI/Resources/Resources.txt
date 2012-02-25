@@ -1,0 +1,64 @@
+﻿Common.Name=Name
+Common.Priority=Priority
+
+Label.Name=Name:
+Label.Priority=Priority:
+Label.Image=Image:
+
+Label.Created=Created:
+Label.Modified=Modified:
+Label.Deadline=Deadline:
+Label.Content=Content:
+Label.Solution=Solution:
+Label.Flag=Flag:
+
+Button.Create=_Create
+Button.Delete=_Delete
+Button.Save=_Save
+Button.Close=C_lose
+
+Sort.Ascending=Ascending
+Sort.Descending=Descending
+Sort.Content=By content
+Sort.Created=By creation date
+Sort.Modified=By modification date
+Sort.Priority=By priority
+
+Task.State=State:
+Task.Group=Group:
+
+Group.All=All
+
+TaskStateFlag.None=None
+TaskStateFlag.Initial=Initial
+TaskStateFlag.Completed=Completed
+GroupFlag.None=None
+GroupFlag.Inbox=Inbox
+
+Conf.Title=TaskPanel :: Configuration
+Conf.Visuals=Visuals and behavior
+Conf.VisualsToolTip=Settings for windows arrange, visuals and behavior
+Conf.Language=Language
+Conf.WindowBehavior=Window behavior:
+Conf.TaskDetail=Task detail:
+Conf.GroupsSort=Sort groups by:
+Conf.ShowGroupAll=Show group "All"
+Conf.ShowInTaskBar=Show TaskPanel in task bar
+Conf.ShowInWindowList=Show TaskPanel in window list (when Alt+Tab is pressed)
+Conf.ShowInTray=Show tray icon for TaskPanel
+Conf.ShowTaskInNewWindow=Show task detail in new window
+Conf.ShowButtonsText=Show buttons text
+Conf.ConfFile=Config file
+Conf.CopyConfFile=Copy
+Conf.CopyConfFileHint=Copy conf file to clipboard
+Conf.DeleteConfFile=Delete
+Conf.DeleteConfFileHint=Delete configuration file (not the tasks file)
+
+Conf.Groups=Task Groups
+Conf.GroupsToolTip=Create, edit and delete each task group
+
+Conf.States=Task States
+Conf.StatesToolTip=Create, edit and delete each task state
+
+Conf.About=About TaskPanel
+Conf.AboutToolTip=About TaskPanel

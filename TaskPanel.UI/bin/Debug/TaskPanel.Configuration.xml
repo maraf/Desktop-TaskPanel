@@ -1,0 +1,19 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<Configuration>
+  <Location UserName="mara" File="D:\Projects\VS10\Projects\TaskPanel\TaskPanel.UI\bin\Debug\TaskPanel.xml" SavePassword="True" AutoLogin="False" Password="1111" />
+  <TaskDetail ShowTaskInNewWindow="True" />
+  <Windows ShowInWindowList="True" ShowInTaskbar="True" ShowInTray="True" />
+  <MainWindow Left="433" Top="260" Width="744" Height="590" />
+  <Groups Sorted="Priority" SortedDirection="Descending" />
+  <Locale Value="en-US" />
+  <DetailWindow Width="669" Height="655" />
+  <CheckedTaskStates>
+    <TaskState ID="1" />
+    <TaskState ID="2" />
+    <TaskState ID="4" />
+  </CheckedTaskStates>
+  <SelectedGroup ID="2" />
+  <TasksSort>
+    <SortDescription Property="Priority" Direction="Descending" />
+  </TasksSort>
+</Configuration>

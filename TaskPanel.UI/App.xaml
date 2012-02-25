@@ -1,0 +1,254 @@
+﻿<Application x:Class="TaskPanel.UI.App"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:dd="clr-namespace:DesktopCore.Data;assembly=DesktopCore"
+             xmlns:local="clr-namespace:TaskPanel.UI"
+             StartupUri="MainWindow.xaml">
+    <Application.Resources>
+        <dd:NullToVisibilityConverter x:Key="nullToVisibility" />
+        <dd:NullToBoolConverter x:Key="nullToBool" />
+        <dd:InversedNullToBoolConverter x:Key="iNullToBool" />
+        <dd:InversedBoolToVisibilityConverter x:Key="iBoolToVisibility" />
+        <BooleanToVisibilityConverter x:Key="boolToVisibility" />
+
+        <local:GroupFlagInboxToVisibilityConverter x:Key="inboxToVisibility" />
+        <local:TaskPanelWrapConverter x:Key="taskPanelWrap" />
+        <local:NotZeroToVisibilityConverter x:Key="notZeroToVisibility" />
+        <local:BoolToWindowStyleConverter x:Key="boolToWindowStyle" />
+
+        <Style x:Key="border" TargetType="{x:Type Border}">
+            <Setter Property="BorderBrush" Value="Gray" />
+            <Setter Property="BorderThickness" Value="0" />
+            <Setter Property="Background" Value="White" />
+            <Setter Property="CornerRadius" Value="5" />
+            <Setter Property="Margin" Value="0" />
+        </Style>
+        <Style x:Key="popup" TargetType="{x:Type Border}" BasedOn="{StaticResource border}">
+            <Setter Property="BorderThickness" Value="2" />
+            <Setter Property="BorderBrush" Value="#444444" />
+            <Setter Property="Background" Value="white" />
+            <Setter Property="Effect">
+                <Setter.Value>
+                    <DropShadowEffect ShadowDepth="0" Opacity=".7" Direction="0" BlurRadius="20" />
+                </Setter.Value>
+            </Setter>
+        </Style>
+        <Style x:Key="plainButton">
+            <Setter Property="Button.Template">
+                <Setter.Value>
+                    <ControlTemplate>
+                        <ContentPresenter Content="{TemplateBinding Button.Content}" />
+                    </ControlTemplate>
+                </Setter.Value>
+            </Setter>
+            <Setter Property="Button.Cursor" Value="Hand" />
+        </Style>
+        <Style x:Key="link" TargetType="{x:Type Button}">
+            <Setter Property="Foreground" Value="Blue" />
+            <Setter Property="Cursor" Value="Hand" />
+            <Setter Property="Template">
+                <Setter.Value>
+                    <ControlTemplate>
+                        <Border VerticalAlignment="Center" HorizontalAlignment="Center" BorderThickness="0,0,0,1" BorderBrush="{TemplateBinding Button.Foreground}" Padding="{TemplateBinding Button.Padding}" Margin="{TemplateBinding Button.Margin}">
+                            <TextBlock Text="{TemplateBinding Button.Content}" Foreground="{TemplateBinding Button.Foreground}" />
+                        </Border>
+                    </ControlTemplate>
+                </Setter.Value>
+            </Setter>
+            <Style.Triggers>
+                <Trigger Property="IsMouseOver" Value="True">
+                    <Setter Property="Foreground" Value="Red" />
+                </Trigger>
+            </Style.Triggers>
+        </Style>
+        
+        <Style x:Key="baseListView" TargetType="{x:Type ItemsControl}">
+            <Setter Property="Background" Value="Transparent" />
+            <Setter Property="BorderThickness" Value="0" />
+        </Style>
+        
+        <Style x:Key="windowBorder" TargetType="{x:Type Border}" BasedOn="{StaticResource border}">
+            <Setter Property="Background" Value="#444444" />
+        </Style>
+        
+        <Style x:Key="groupMenu" TargetType="{x:Type ListView}" BasedOn="{StaticResource baseListView}">
+            <Setter Property="Template">
+                <Setter.Value>
+                    <ControlTemplate TargetType="{x:Type ListView}">
+                        <Border Background="{TemplateBinding Control.Background}" BorderBrush="{TemplateBinding Control.BorderBrush}" BorderThickness="{TemplateBinding Control.BorderThickness}" Padding="0" SnapsToDevicePixels="True">
+                            <ScrollViewer Focusable="False" Padding="{TemplateBinding Control.Padding}">
+                                <ItemsPresenter SnapsToDevicePixels="{TemplateBinding UIElement.SnapsToDevicePixels}" />
+                            </ScrollViewer>
+                        </Border>
+                    </ControlTemplate>
+                </Setter.Value>
+            </Setter>
+        </Style>
+        <Style x:Key="groupItem" TargetType="{x:Type ListViewItem}">
+            <Setter Property="Cursor" Value="Hand" />
+            <Setter Property="Template">
+                <Setter.Value>
+                    <ControlTemplate TargetType="{x:Type ListViewItem}">
+                        <Border x:Name="RowBorder" Background="#6C6C6C" CornerRadius="0,5,5,0" Margin="0,4">
+                            <ContentPresenter />
+                        </Border>
+                        <ControlTemplate.Triggers>
+                            <Trigger Property="IsMouseOver" Value="true">
+                                <Setter TargetName="RowBorder" Property="Background" Value="#9B9B9B" />
+                            </Trigger>
+                            <Trigger Property="IsSelected" Value="true">
+                                <Setter TargetName="RowBorder" Property="Background" Value="White" />
+                            </Trigger>
+                        </ControlTemplate.Triggers>
+                    </ControlTemplate>
+                </Setter.Value>
+            </Setter>
+        </Style>
+        <Style x:Key="groupButton" TargetType="{x:Type ToggleButton}">
+            <Setter Property="Cursor" Value="Hand" />
+            <Setter Property="Template">
+                <Setter.Value>
+                    <ControlTemplate TargetType="{x:Type ToggleButton}">
+                        <Border x:Name="RowBorder" Background="#6C6C6C" CornerRadius="0,5,5,0" Margin="0,4">
+                            <ContentPresenter />
+                        </Border>
+                        <ControlTemplate.Triggers>
+                            <Trigger Property="IsMouseOver" Value="true">
+                                <Setter TargetName="RowBorder" Property="Background" Value="#9B9B9B" />
+                            </Trigger>
+                            <Trigger Property="IsChecked" Value="true">
+                                <Setter TargetName="RowBorder" Property="Background" Value="White" />
+                            </Trigger>
+                        </ControlTemplate.Triggers>
+                    </ControlTemplate>
+                </Setter.Value>
+            </Setter>
+        </Style>
+
+        <Style x:Key="sortButton" TargetType="{x:Type Button}">
+            <Setter Property="Cursor" Value="Hand" />
+            <Setter Property="Template">
+                <Setter.Value>
+                    <ControlTemplate TargetType="{x:Type Button}">
+                        <Border x:Name="RowBorder" Background="#F1F5FB" CornerRadius="5" Margin="2,0">
+                            <ContentPresenter Content="{TemplateBinding Button.Content}" Margin="4,2" />
+                        </Border>
+                        <ControlTemplate.Triggers>
+                            <Trigger Property="IsMouseOver" Value="true">
+                                <Setter TargetName="RowBorder" Property="Background" Value="Orange" />
+                                <Setter Property="Foreground" Value="White" />
+                            </Trigger>
+                        </ControlTemplate.Triggers>
+                    </ControlTemplate>
+                </Setter.Value>
+            </Setter>
+        </Style>
+
+        <Style x:Key="taskPanel" TargetType="{x:Type ListView}" BasedOn="{StaticResource baseListView}">
+            <Setter Property="Background" Value="White" />
+        </Style>
+        <Style x:Key="taskItem" TargetType="{x:Type ListViewItem}">
+            <Setter Property="Template">
+                <Setter.Value>
+                    <ControlTemplate TargetType="{x:Type ListViewItem}">
+                        <Border x:Name="RowBorder" CornerRadius="5" Margin="0,0,0,1" Padding="4,2">
+                            <ContentPresenter />
+                        </Border>
+                        <ControlTemplate.Triggers>
+                            <Trigger Property="IsSelected" Value="true">
+                                <Setter TargetName="RowBorder" Property="Background" Value="{x:Static SystemColors.HighlightBrush}" />
+                                <!--#0D8ECB-->
+                            </Trigger>
+                            <Trigger Property="IsMouseOver" Value="true">
+                                <Setter TargetName="RowBorder" Property="Background" Value="{x:Static SystemColors.GradientActiveCaptionBrush}" />
+                                <!--#4DC4FF-->
+                            </Trigger>
+                        </ControlTemplate.Triggers>
+                    </ControlTemplate>
+                </Setter.Value>
+            </Setter>
+        </Style>
+
+        <Style x:Key="button" TargetType="{x:Type Button}">
+            <Setter Property="Cursor" Value="Hand" />
+            <Setter Property="Template">
+                <Setter.Value>
+                    <ControlTemplate TargetType="{x:Type Button}">
+                        <Border x:Name="IconBorder" Background="#6C6C6C" CornerRadius="5">
+                            <ContentPresenter x:Name="Content" Margin="7,5" RecognizesAccessKey="True" />
+                        </Border>
+                        <ControlTemplate.Triggers>
+                            <Trigger Property="IsMouseOver" Value="true">
+                                <Setter TargetName="IconBorder" Property="Background" Value="White" />
+                            </Trigger>
+                        </ControlTemplate.Triggers>
+                    </ControlTemplate>
+                </Setter.Value>
+            </Setter>
+        </Style>
+
+        <Style x:Key="message" TargetType="{x:Type Label}">
+            <!--<Style.Triggers>
+                <Trigger Property="Visibility" Value="Visible">
+                    <Trigger.EnterActions>
+                        <BeginStoryboard >
+                            <Storyboard>
+                                <ObjectAnimationUsingKeyFrames BeginTime="0:0:0" Storyboard.TargetProperty="Visibility">
+                                    <DiscreteObjectKeyFrame KeyTime="0">
+                                        <DiscreteObjectKeyFrame.Value>
+                                            <Visibility>Visible</Visibility>
+                                        </DiscreteObjectKeyFrame.Value>
+                                    </DiscreteObjectKeyFrame>
+                                </ObjectAnimationUsingKeyFrames>
+                                <DoubleAnimation BeginTime="0:0:0.0" Storyboard.TargetProperty="Opacity" From="0" To="1" Duration="0:0:0.2"/>
+                                <DoubleAnimation BeginTime="0:0:5.0" Storyboard.TargetProperty="Opacity" From="1" To="0" Duration="0:0:0.5"/>
+                                <ObjectAnimationUsingKeyFrames BeginTime="0:0:5.5" Storyboard.TargetProperty="Visibility">
+                                    <DiscreteObjectKeyFrame KeyTime="0">
+                                        <DiscreteObjectKeyFrame.Value>
+                                            <Visibility>Hidden</Visibility>
+                                        </DiscreteObjectKeyFrame.Value>
+                                    </DiscreteObjectKeyFrame>
+                                </ObjectAnimationUsingKeyFrames>
+                            </Storyboard>
+                        </BeginStoryboard>
+                    </Trigger.EnterActions>
+                </Trigger>
+            </Style.Triggers>-->
+        </Style>
+
+        <Style x:Key="checkBoxButton" TargetType="{x:Type CheckBox}">
+            <Setter Property="Cursor" Value="Hand" />
+            <Setter Property="Template">
+                <Setter.Value>
+                    <ControlTemplate TargetType="{x:Type CheckBox}">
+                        <Border x:Name="IconBorder" Style="{StaticResource border}" Margin="0,0,5,0" Background="#6C6C6C">
+                            <ContentPresenter Margin="2" />
+                        </Border>
+                        <ControlTemplate.Triggers>
+                            <Trigger Property="IsMouseOver" Value="true">
+                                <Setter TargetName="IconBorder" Property="Background" Value="#9B9B9B" />
+                            </Trigger>
+                            <Trigger Property="IsChecked" Value="true">
+                                <Setter TargetName="IconBorder" Property="Background" Value="White" />
+                            </Trigger>
+                        </ControlTemplate.Triggers>
+                    </ControlTemplate>
+                </Setter.Value>
+            </Setter>
+        </Style>
+
+        <Style x:Key="baseSlider" TargetType="{x:Type Slider}">
+            <Setter Property="TickPlacement" Value="BottomRight" />
+            <Setter Property="IsSnapToTickEnabled" Value="True" />
+            <Setter Property="ToolTip" Value="{Binding Value, RelativeSource={RelativeSource Self}}" />
+        </Style>
+        <Style TargetType="{x:Type Slider}" BasedOn="{StaticResource baseSlider}" />
+        <Style x:Key="priority" TargetType="{x:Type Slider}" BasedOn="{StaticResource baseSlider}">
+            <Setter Property="Minimum" Value="1" />
+            <Setter Property="Maximum" Value="5" />
+            <Setter Property="TickFrequency" Value=".5" />
+        </Style>
+
+
+    </Application.Resources>
+</Application>

@@ -1,0 +1,19 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<TaskPanel>
+  <User ID="1" UserName="mara" Password="1111" FirstName="Marek" LastName="Fišera">
+    <TaskStates>
+      <TaskState ID="1" Name="Error" ImagePath="D:/Documents/Downloads/Error.png" />
+    </TaskStates>
+    <Groups>
+      <Group ID="1" Name="Inbox" />
+    </Groups>
+    <Tasks>
+      <Task ID="1" Content="Hello, World!" GroupID="1" TaskStateID="1" UserID="1" />
+      <Task ID="2" Content="Complete TaskPanel" GroupID="1" TaskStateID="1" UserID="1" />
+      <Task ID="3" Content="Newly created task 23:39" GroupID="1" TaskStateID="1" UserID="1" />
+      <Task ID="4" Content="Newly created task 23:44" GroupID="1" TaskStateID="1" UserID="1" />
+      <Task ID="5" Content="Newly created task 0:03" GroupID="1" TaskStateID="1" UserID="1" />
+      <Task ID="6" Content="Newly created task 0:04" GroupID="1" TaskStateID="1" UserID="1" />
+    </Tasks>
+  </User>
+</TaskPanel>

@@ -1,0 +1,122 @@
+﻿<UserControl x:Class="TaskPanel.UI.Controls.TaskDetail"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+             mc:Ignorable="d" IsVisibleChanged="UserControl_IsVisibleChanged"
+             xmlns:dd="clr-namespace:DesktopCore.Data;assembly=DesktopCore"
+             xmlns:c="clr-namespace:DesktopCore;assembly=DesktopCore.Resources"
+             x:Name="root" d:DesignHeight="300" d:DesignWidth="550">
+    <UserControl.Resources>
+        <dd:DateTimeFormatConverter x:Key="dateTimeFormat" />
+        
+        <Style x:Key="label" TargetType="{x:Type Label}">
+            <Setter Property="FontWeight" Value="Bold" />
+            <Setter Property="Foreground" Value="#6C6C6C" />
+            <Setter Property="Background" Value="#F0F0F0" />
+            <Setter Property="Padding" Value="4,2" />
+            <Setter Property="Margin" Value="0,4,0,0" />
+        </Style>
+        <Style TargetType="{x:Type TextBox}">
+            <Setter Property="BorderThickness" Value="3" />
+            <Setter Property="BorderBrush" Value="#6C6C6C" />
+        </Style>
+        <Style TargetType="{x:Type DatePicker}">
+            <Setter Property="BorderThickness" Value="3" />
+            <Setter Property="BorderBrush" Value="#6C6C6C" />
+            <Setter Property="Padding" Value="0" />
+        </Style>
+        <Style x:Key="textbox" TargetType="{x:Type Label}">
+            <Setter Property="Padding" Value="4,2" />
+            <Setter Property="Margin" Value="0,4,0,0" />
+            <Setter Property="BorderThickness" Value="3" />
+            <Setter Property="BorderBrush" Value="#6C6C6C" />
+        </Style>
+    </UserControl.Resources>
+    <Grid Margin="5" Background="White">
+        <Grid.RowDefinitions>
+            <RowDefinition Height="Auto" />
+            <RowDefinition Height="2*" />
+            <RowDefinition Height="Auto" />
+            <RowDefinition />
+            <RowDefinition Height="Auto" />
+            <RowDefinition Height="Auto" />
+        </Grid.RowDefinitions>
+
+        <Grid Grid.Row="0">
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="Auto" />
+                <ColumnDefinition />
+                <ColumnDefinition Width="Auto" />
+                <ColumnDefinition />
+                <ColumnDefinition Width="Auto" />
+                <ColumnDefinition />
+            </Grid.ColumnDefinitions>
+
+            <Label Content="{c:Resource Label.Created}" Style="{StaticResource label}" Visibility="{Binding Task.ID, ElementName=root, Converter={StaticResource notZeroToVisibility}}" Grid.Column="0" />
+            <Label Content="{Binding Task.Created, ElementName=root, Converter={StaticResource dateTimeFormat}}" Style="{StaticResource textbox}" 
+             Visibility="{Binding Task.ID, ElementName=root, Converter={StaticResource notZeroToVisibility}}" BorderThickness="0" Grid.Column="1" />
+
+            <Label Content="{c:Resource Label.Modified}" Style="{StaticResource label}" Visibility="{Binding Task.ID, ElementName=root, Converter={StaticResource notZeroToVisibility}}" Grid.Column="2" />
+            <Label Content="{Binding Task.Modified, ElementName=root, Converter={StaticResource dateTimeFormat}}" Style="{StaticResource textbox}" 
+             Visibility="{Binding Task.ID, ElementName=root, Converter={StaticResource notZeroToVisibility}}" BorderThickness="0" Grid.Column="3" />
+            
+            <Label Content="{c:Resource Label.Deadline}" Style="{StaticResource label}" Grid.Column="4" />
+            <StackPanel Orientation="Horizontal" Grid.Column="5">
+                <CheckBox x:Name="cbxDeadline" VerticalAlignment="Center" IsChecked="{Binding Task.Deadline, ElementName=root, Mode=OneWay, Converter={StaticResource nullToBool}}" Margin="2,0" />
+                <DatePicker SelectedDate="{Binding Task.Deadline, ElementName=root}" IsEnabled="{Binding IsChecked, ElementName=cbxDeadline}" />
+            </StackPanel>
+        </Grid>
+        <DockPanel Grid.Row="1">
+            <Label Content="{c:Resource Label.Content}" Target="{Binding ElementName=tbxContent}" Style="{StaticResource label}" DockPanel.Dock="Top" />
+            <TextBox x:Name="tbxContent" Text="{Binding Task.Content, ElementName=root}" AcceptsReturn="True" TextWrapping="Wrap" />
+        </DockPanel>
+        <GridSplitter Height="5" VerticalAlignment="Center" HorizontalAlignment="Stretch" Background="Transparent" Grid.Row="2" Grid.Column="0"/>
+        <DockPanel Grid.Row="3">
+            <Label Content="{c:Resource Label.Solution}" Target="{Binding ElementName=tbxSolution}" Style="{StaticResource label}" DockPanel.Dock="Top" />
+            <TextBox x:Name="tbxSolution" Text="{Binding Task.Solution, ElementName=root}" AcceptsReturn="True" TextWrapping="Wrap" />
+        </DockPanel>
+        <Grid Margin="0,5,0,0" Grid.Row="4">
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="100" />
+                <ColumnDefinition />
+                <ColumnDefinition Width="Auto" />
+                <ColumnDefinition Width="Auto" />
+            </Grid.ColumnDefinitions>
+            <DockPanel Margin="0,0,2,0">
+                <Label Content="{c:Resource Task.State}" Target="{Binding ElementName=coxTaskStates}" Style="{StaticResource label}" DockPanel.Dock="Top" />
+                <ComboBox x:Name="coxTaskStates" SelectedItem="{Binding Task.State, ElementName=root}" ItemsSource="{Binding TaskStates, ElementName=root}">
+                    <ComboBox.ItemTemplate>
+                        <DataTemplate>
+                            <StackPanel Orientation="Horizontal" Margin="0,2">
+                                <Image Source="{Binding Image}" Height="16" />
+                                <Label Content="{Binding Name}" Padding="0" Margin="5,0,0,0" />
+                            </StackPanel>
+                        </DataTemplate>
+                    </ComboBox.ItemTemplate>
+                </ComboBox>
+            </DockPanel>
+            <DockPanel Margin="2,0,0,0" Grid.Column="1">
+                <Label Content="{c:Resource Task.Group}" Target="{Binding ElementName=coxTaskGroups}" Style="{StaticResource label}" DockPanel.Dock="Top" />
+                <ComboBox x:Name="coxTaskGroups" SelectedItem="{Binding Task.Group, ElementName=root}" ItemsSource="{Binding Groups, ElementName=root}">
+                    <ComboBox.ItemTemplate>
+                        <DataTemplate>
+                            <StackPanel Orientation="Horizontal" Margin="0,2">
+                                <Image Source="{Binding Image}" Height="16" />
+                                <Label Content="{Binding Name}" Padding="0" Margin="5,0,0,0" />
+                            </StackPanel>
+                        </DataTemplate>
+                    </ComboBox.ItemTemplate>
+                </ComboBox>
+            </DockPanel>
+            <StackPanel Margin="2,0,0,0" Grid.Column="2">
+                <Label Content="{c:Resource Label.Priority}" Style="{StaticResource label}" />
+                <Slider Value="{Binding Task.Priority, ElementName=root}" Style="{StaticResource priority}" />
+            </StackPanel>
+            <StackPanel Orientation="Horizontal" HorizontalAlignment="Right" Margin="4,4,0,4" Grid.Column="3">
+                <Button x:Name="btnSaveTask" Width="60" Content="{c:Resource Button.Save}" Click="btnSaveTask_Click" HorizontalAlignment="Right" />
+                <Button x:Name="btnCloseTask" Width="60" Content="{c:Resource Button.Close}" Click="btnCloseTask_Click" HorizontalAlignment="Right" Margin="5,0,0,0" />
+            </StackPanel>
+        </Grid>
+    </Grid>
+</UserControl>

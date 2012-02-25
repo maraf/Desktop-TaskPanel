@@ -1,0 +1,290 @@
+﻿<Window x:Class="TaskPanel.UI.ConfigurationWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:ui="clr-namespace:TaskPanel.UI.Controls"
+        xmlns:c="clr-namespace:DesktopCore;assembly=DesktopCore.Resources"
+        Title="{c:Resource Conf.Title}" Height="500" Width="700" Icon="/TaskPanel.UI;component/TaskPanel.ico" ShowInTaskbar="False" WindowStartupLocation="CenterScreen">
+    <Window.Resources>
+        <Style TargetType="{x:Type Label}">
+            <Setter Property="Foreground" Value="White" />
+        </Style>
+        <Style TargetType="{x:Type CheckBox}">
+            <Setter Property="Foreground" Value="White" />
+        </Style>
+        <Style TargetType="{x:Type TabControl}">
+            <Setter Property="Background" Value="Transparent" />
+            <Setter Property="BorderThickness" Value="0" />
+            <!--<Setter Property="BorderThickness" Value="0,2,0,0" />
+            <Setter Property="BorderBrush" Value="White" />-->
+            <Setter Property="Template">
+                <Setter.Value>
+                    <ControlTemplate>
+                        <Grid ClipToBounds="True" SnapsToDevicePixels="True" KeyboardNavigation.TabNavigation="Local">
+                            <Grid.ColumnDefinitions>
+                                <ColumnDefinition Name="ColumnDefinition0" />
+                                <ColumnDefinition Width="0" Name="ColumnDefinition1" />
+                            </Grid.ColumnDefinitions>
+                            <Grid.RowDefinitions>
+                                <RowDefinition Height="Auto" Name="RowDefinition0" />
+                                <RowDefinition Height="*" Name="RowDefinition1" />
+                            </Grid.RowDefinitions>
+
+                            <Border CornerRadius="5" Background="#585858" BorderThickness="2" BorderBrush="#2E2E2E" Padding="3">
+                                <TabPanel IsItemsHost="True" Name="HeaderPanel" Margin="2,2,2,0" KeyboardNavigation.TabIndex="1" Panel.ZIndex="1" Grid.Column="0" Grid.Row="0" />
+                            </Border>
+                            <Border BorderThickness="{TemplateBinding Border.BorderThickness}" BorderBrush="{TemplateBinding Border.BorderBrush}" Background="{TemplateBinding Panel.Background}" Name="ContentPanel" KeyboardNavigation.TabIndex="2" KeyboardNavigation.TabNavigation="Local" KeyboardNavigation.DirectionalNavigation="Contained" Grid.Column="0" Grid.Row="1">
+                                <ContentPresenter Content="{TemplateBinding TabControl.SelectedContent}" ContentTemplate="{TemplateBinding TabControl.SelectedContentTemplate}" ContentStringFormat="{TemplateBinding TabControl.SelectedContentStringFormat}" ContentSource="SelectedContent" Name="PART_SelectedContentHost" Margin="{TemplateBinding Control.Padding}" SnapsToDevicePixels="{TemplateBinding UIElement.SnapsToDevicePixels}" />
+                            </Border>
+                        </Grid>
+                    </ControlTemplate>
+                </Setter.Value>
+            </Setter>
+        </Style>
+        <Style TargetType="{x:Type TabItem}">
+            <Setter Property="Background" Value="#444444" />
+            <Setter Property="Template">
+                <Setter.Value>
+                    <ControlTemplate TargetType="{x:Type TabItem}">
+                        <Border x:Name="Border" BorderThickness="1" BorderBrush="#444444" CornerRadius="2" Margin="0,0,4,0">
+                            <Label x:Name="Content" Content="{TemplateBinding Header}" Foreground="White" Padding="8,2" Cursor="Hand" />
+                        </Border>
+                        <ControlTemplate.Triggers>
+                            <Trigger SourceName="Content" Property="IsMouseOver" Value="True">
+                                <Setter TargetName="Border" Property="BorderBrush" Value="White" />
+                            </Trigger>
+                            <Trigger Property="IsSelected" Value="True">
+                                <Setter TargetName="Border" Property="Background" Value="#aaaaaa" />
+                                <Setter TargetName="Content" Property="Foreground" Value="Black" />
+                            </Trigger>
+                        </ControlTemplate.Triggers>
+                    </ControlTemplate>
+                </Setter.Value>
+            </Setter>
+        </Style>
+    </Window.Resources>
+    <Border Style="{StaticResource windowBorder}">
+        <DockPanel Margin="10">
+            <TextBlock Text="{Binding SelectedItem.ToolTip, ElementName=tbcSections}" Foreground="#cccccc" FontWeight="Bold" FontSize="15" Margin="10,5" DockPanel.Dock="Top" />
+            <TabControl x:Name="tbcSections">
+                <TabItem Header="{c:Resource Conf.Visuals}" ToolTip="{c:Resource Conf.VisualsToolTip}">
+                    <Grid>
+                        <Grid.ColumnDefinitions>
+                            <ColumnDefinition Width="120" />
+                            <ColumnDefinition />
+                        </Grid.ColumnDefinitions>
+                        <Grid.RowDefinitions>
+                            <RowDefinition Height="Auto" />
+                            <RowDefinition Height="Auto" />
+                            <RowDefinition Height="Auto" />
+                            <RowDefinition Height="Auto" />
+                            <RowDefinition Height="Auto" />
+                            <RowDefinition Height="Auto" />
+                        </Grid.RowDefinitions>
+                        
+                        <Label Content="{c:Resource Conf.Language}" Grid.Column="0" Grid.Row="0" />
+                        <Label Content="{c:Resource Conf.WindowBehavior}"  Grid.Column="0" Grid.Row="1" />
+                        <Label Content="{c:Resource Conf.TaskDetail}" Grid.Column="0" Grid.Row="2" />
+                        <Label Content="{c:Resource Conf.GroupsSort}" Grid.Column="0" Grid.Row="3" />
+                        <Label Content="{c:Resource Conf.ConfFile}" Grid.Column="0" Grid.Row="4" />
+
+                        <ComboBox x:Name="coxLanguages" SelectedItem="{Binding Configuration.Locale}" DisplayMemberPath="DisplayName" Width="200" HorizontalAlignment="Left" Margin="0,2" Grid.Column="1" Grid.Row="0" />
+                        <StackPanel Margin="0,2" Grid.Column="1" Grid.Row="1">
+                            <CheckBox IsChecked="{Binding Configuration.ShowInTaskbar}" Content="{c:Resource Conf.ShowInTaskBar}" Margin="5" />
+                            <CheckBox IsChecked="{Binding Configuration.ShowInWindowList}" Content="{c:Resource Conf.ShowInWindowList}" Margin="5" />
+                            <CheckBox IsChecked="{Binding Configuration.ShowInTray}" Content="{c:Resource Conf.ShowInTray}" Margin="5" />
+                            <CheckBox IsChecked="{Binding Configuration.ShowButtonsText}" Content="{c:Resource Conf.ShowButtonsText}" Margin="5" />
+                        </StackPanel>
+                        <StackPanel Margin="0,2" Grid.Column="1" Grid.Row="2">
+                            <CheckBox IsChecked="{Binding Configuration.ShowTaskInNewWindow}" Content="{c:Resource Conf.ShowTaskInNewWindow}" Margin="5" />
+                        </StackPanel>
+                        <StackPanel Margin="0,2" Grid.Column="1" Grid.Row="3">
+                            <StackPanel Orientation="Horizontal">
+                                <ComboBox x:Name="coxGroupsSort" SelectedValue="{Binding Configuration.GroupsSort}" DisplayMemberPath="Name" SelectedValuePath="Value" Width="200" />
+                                <ComboBox x:Name="coxGroupsSortDirection" SelectedValue="{Binding Configuration.GroupsSortDirection}" DisplayMemberPath="Name" SelectedValuePath="Value" Width="100" Margin="2,0,0,0" />
+                            </StackPanel>
+                            <CheckBox IsChecked="{Binding Configuration.ShowGroupAll}" Content="{c:Resource Conf.ShowGroupAll}" Margin="5" />
+                        </StackPanel>
+                        <StackPanel Margin="0,2" Grid.Column="1" Grid.Row="4">
+                            <StackPanel Margin="0,0,0,4" Orientation="Horizontal">
+                                <Button x:Name="btnCopyConfig" Content="{c:Resource Conf.CopyConfFile}" Click="btnCopyConfig_Click" />
+                                <Label Content="{c:Resource Conf.CopyConfFileHint}" Foreground="#dddddd" />
+                            </StackPanel>
+                            <StackPanel Margin="0,0,0,4" Orientation="Horizontal">
+                                <Button x:Name="btnDeleteConfig" Content="{c:Resource Conf.DeleteConfFile}" Click="btnDeleteConfig_Click" />
+                                <Label Content="{c:Resource Conf.DeleteConfFileHint}" Foreground="#dddddd" />
+                            </StackPanel>
+                            <TextBox x:Name="tbxConfigFile" IsReadOnly="False" IsReadOnlyCaretVisible="True" />
+                        </StackPanel>
+                    </Grid>
+                </TabItem>
+                <TabItem Header="{c:Resource Conf.Groups}" ToolTip="{c:Resource Conf.GroupsToolTip}">
+                    <Grid Margin="10">
+                        <Grid.ColumnDefinitions>
+                            <ColumnDefinition Width="160" />
+                            <ColumnDefinition Width="Auto" />
+                            <ColumnDefinition />
+                        </Grid.ColumnDefinitions>
+                        <Grid.RowDefinitions>
+                            <RowDefinition Height="Auto" />
+                            <RowDefinition />
+                        </Grid.RowDefinitions>
+                        
+                        <Grid Grid.ColumnSpan="3">
+                            <StackPanel Margin="0,0,0,5" Orientation="Horizontal">
+                                <Button x:Name="btnGroupCreate" Content="{c:Resource Button.Create}" Click="btnGroupCreate_Click" Padding="5,0" />
+                                <Button x:Name="btnGroupDelete" Content="{c:Resource Button.Delete}" Click="btnGroupDelete_Click" Padding="5,0" Margin="5,0,0,0"
+                                 IsEnabled="{Binding SelectedItem, ElementName=lvwGroups, Converter={StaticResource nullToBool}}" />
+                            </StackPanel>
+                        </Grid>
+
+                        <ListView x:Name="lvwGroups" ItemsSource="{Binding Groups}" SelectedItem="{Binding SelectedGroup}" Background="Transparent" BorderThickness="0" Grid.Column="0" Grid.Row="1">
+                            <ListView.ItemTemplate>
+                                <DataTemplate>
+                                    <DockPanel>
+                                        <Image Source="{Binding Image}" Height="24" Margin="5,0" DockPanel.Dock="Left" />
+                                        <StackPanel>
+                                            <Label Padding="0" Content="{Binding Name}" />
+                                            <StackPanel Orientation="Horizontal">
+                                                <Label Padding="0" Content="{c:Resource Label.Priority}" />
+                                                <Label Content="{Binding Priority}" Padding="0" Margin="5,0,0,0" FontWeight="Bold" />
+                                            </StackPanel>
+                                        </StackPanel>
+                                    </DockPanel>
+                                </DataTemplate>
+                            </ListView.ItemTemplate>
+                        </ListView>
+
+                        <GridSplitter Width="2" VerticalAlignment="Stretch" HorizontalAlignment="Center" Background="#33ffffff" Grid.Column="1" Grid.Row="1"/>
+
+                        <Grid IsEnabled="{Binding SelectedItem, ElementName=lvwGroups, Converter={StaticResource nullToBool}}" Grid.Column="2" Grid.Row="1">
+                            <Grid.ColumnDefinitions>
+                                <ColumnDefinition Width="60" />
+                                <ColumnDefinition />
+                            </Grid.ColumnDefinitions>
+                            <Grid.RowDefinitions>
+                                <RowDefinition Height="Auto" />
+                                <RowDefinition Height="Auto" />
+                                <RowDefinition Height="Auto" />
+                                <RowDefinition Height="Auto" />
+                                <RowDefinition Height="Auto" />
+                                <RowDefinition />
+                            </Grid.RowDefinitions>
+
+                            <Label Content="{c:Resource Label.Name}" Target="{Binding ElementName=tbxGroupName}" Grid.Column="0" Grid.Row="0" />
+                            <Label Content="{c:Resource Label.Priority}" Target="{Binding ElementName=sldGroupPriority}" Grid.Column="0" Grid.Row="1" />
+                            <Label Content="{c:Resource Label.Flag}" Grid.Column="0" Grid.Row="2" />
+                            <Label Content="{c:Resource Label.Image}" Grid.Column="0" Grid.Row="3" />
+
+                            <TextBox x:Name="tbxGroupName" Text="{Binding SelectedGroup.Name}" Margin="2" Grid.Column="1" Grid.Row="0" />
+                            <Slider x:Name="sldGroupPriority" Value="{Binding SelectedGroup.Priority}" ValueChanged="sldGroupPriority_ValueChanged" Style="{StaticResource priority}" Margin="2" Grid.Column="1" Grid.Row="1" />
+                            <ComboBox x:Name="coxGroupFlag" SelectedValue="{Binding SelectedGroup.Flag}" DisplayMemberPath="Value" SelectedValuePath="Key" 
+                             Width="150" Margin="2" HorizontalAlignment="Left" Grid.Column="1" Grid.Row="2" />
+                            <ui:FileTextBox FileName="{Binding SelectedGroup.ImagePath}" Margin="2" Grid.Column="1" Grid.Row="3" />
+
+                            <ListView x:Name="lvwGroupIcons" ItemsSource="{Binding GroupIcons}" SelectionChanged="lvwGroupIcons_SelectionChanged" Background="Transparent" BorderThickness="0" Margin="0,5,0,0" 
+                             ScrollViewer.HorizontalScrollBarVisibility="Disabled" Grid.Column="1" Grid.Row="4">
+                                <ListView.ItemsPanel>
+                                    <ItemsPanelTemplate>
+                                        <WrapPanel Orientation="Horizontal" />
+                                    </ItemsPanelTemplate>
+                                </ListView.ItemsPanel>
+                                <ListView.ItemTemplate>
+                                    <DataTemplate>
+                                        <Image Source="{Binding Image}" Width="32" Height="32" />
+                                    </DataTemplate>
+                                </ListView.ItemTemplate>
+                            </ListView>
+                        </Grid>
+                    </Grid>
+                </TabItem>
+                <TabItem Header="{c:Resource Conf.States}" ToolTip="{c:Resource Conf.StatesToolTip}">
+                    <Grid Margin="10">
+                        <Grid.ColumnDefinitions>
+                            <ColumnDefinition Width="160" />
+                            <ColumnDefinition Width="Auto" />
+                            <ColumnDefinition />
+                        </Grid.ColumnDefinitions>
+                        <Grid.RowDefinitions>
+                            <RowDefinition Height="Auto" />
+                            <RowDefinition />
+                        </Grid.RowDefinitions>
+
+                        <Grid Grid.ColumnSpan="3">
+                            <StackPanel Margin="0,0,0,5" Orientation="Horizontal">
+                                <Button x:Name="btnStateCreate" Content="{c:Resource Button.Create}" Click="btnStateCreate_Click" Padding="5,0" />
+                                <Button x:Name="btnStateDelete" Content="{c:Resource Button.Delete}" Click="btnStateDelete_Click" Padding="5,0" Margin="5,0,0,0"
+                                 IsEnabled="{Binding SelectedItem, ElementName=lvwState, Converter={StaticResource nullToBool}}" />
+                            </StackPanel>
+                        </Grid>
+
+                        <ListView x:Name="lvwStates" ItemsSource="{Binding TaskStates}" SelectedItem="{Binding SelectedTaskState}" Background="Transparent" BorderThickness="0" Grid.Column="0" Grid.Row="1">
+                            <ListView.ItemTemplate>
+                                <DataTemplate>
+                                    <DockPanel>
+                                        <Image Source="{Binding Image}" Height="24" Margin="5,0" DockPanel.Dock="Left" />
+                                        <StackPanel>
+                                            <Label Padding="0" Content="{Binding Name}" />
+                                            <StackPanel Orientation="Horizontal">
+                                                <Label Padding="0" Content="{c:Resource Label.Priority}" />
+                                                <Label Content="{Binding Priority}" Padding="0" Margin="5,0,0,0" FontWeight="Bold" />
+                                            </StackPanel>
+                                        </StackPanel>
+                                    </DockPanel>
+                                </DataTemplate>
+                            </ListView.ItemTemplate>
+                        </ListView>
+
+                        <GridSplitter Width="2" VerticalAlignment="Stretch" HorizontalAlignment="Center" Background="#33ffffff" Grid.Column="1" Grid.Row="1"/>
+
+                        <Grid IsEnabled="{Binding SelectedItem, ElementName=lvwStates, Converter={StaticResource nullToBool}}" Grid.Column="2" Grid.Row="1">
+                            <Grid.ColumnDefinitions>
+                                <ColumnDefinition Width="60" />
+                                <ColumnDefinition />
+                            </Grid.ColumnDefinitions>
+                            <Grid.RowDefinitions>
+                                <RowDefinition Height="Auto" />
+                                <RowDefinition Height="Auto" />
+                                <RowDefinition Height="Auto" />
+                                <RowDefinition Height="Auto" />
+                                <RowDefinition Height="Auto" />
+                                <RowDefinition />
+                            </Grid.RowDefinitions>
+
+                            <Label Content="{c:Resource Label.Name}" Target="{Binding ElementName=tbxStateName}" Grid.Column="0" Grid.Row="0" />
+                            <Label Content="{c:Resource Label.Priority}" Target="{Binding ElementName=sldStatePriority}" Grid.Column="0" Grid.Row="1" />
+                            <Label Content="{c:Resource Label.Flag}" Grid.Column="0" Grid.Row="2" />
+                            <Label Content="{c:Resource Label.Image}" Grid.Column="0" Grid.Row="3" />
+
+                            <TextBox x:Name="tbxStateName" Text="{Binding SelectedTaskState.Name}" Margin="2" Grid.Column="1" Grid.Row="0" />
+                            <Slider x:Name="sldStatePriority" Value="{Binding SelectedTaskState.Priority}" ValueChanged="sldStatePriority_ValueChanged" Style="{StaticResource priority}" Margin="2" Grid.Column="1" Grid.Row="1" />
+                            <ComboBox x:Name="coxStateFlag" SelectedValue="{Binding SelectedTaskState.Flag}" DisplayMemberPath="Value" SelectedValuePath="Key" 
+                             Width="150" Margin="2" HorizontalAlignment="Left" Grid.Column="1" Grid.Row="2" />
+                            <ui:FileTextBox FileName="{Binding SelectedTaskState.ImagePath}" Margin="2" Grid.Column="1" Grid.Row="3" />
+
+                            <ListView x:Name="lvwStateIcons" ItemsSource="{Binding TaskStateIcons}" SelectionChanged="lvwStateIcons_SelectionChanged" Background="Transparent" BorderThickness="0" Margin="0,5,0,0" 
+                             ScrollViewer.HorizontalScrollBarVisibility="Disabled" Grid.Column="1" Grid.Row="4">
+                                <ListView.ItemsPanel>
+                                    <ItemsPanelTemplate>
+                                        <WrapPanel Orientation="Horizontal" />
+                                    </ItemsPanelTemplate>
+                                </ListView.ItemsPanel>
+                                <ListView.ItemTemplate>
+                                    <DataTemplate>
+                                        <Image Source="{Binding Image}" Width="32" Height="32" />
+                                    </DataTemplate>
+                                </ListView.ItemTemplate>
+                            </ListView>
+                        </Grid>
+                    </Grid>
+                </TabItem>
+                <TabItem Header="{c:Resource Conf.About}" ToolTip="{c:Resource Conf.AboutToolTip}">
+                    <StackPanel>
+                        <Label Content="Author: Marek Fišera (people.neptuo.com/mara)" />
+                        <Label Content="Home: code.google.com/p/task-panel" />
+                        <Label x:Name="lblVersion" />
+                    </StackPanel>
+                </TabItem>
+            </TabControl>
+        </DockPanel>
+    </Border>
+</Window>

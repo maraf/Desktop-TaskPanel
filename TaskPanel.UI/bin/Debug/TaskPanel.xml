@@ -1,0 +1,84 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<TaskPanel>
+  <User ID="1" UserName="mara" Password="1111" FirstName="Marek" LastName="Fišera">
+    <TaskStates>
+      <TaskState ID="1" Name="Cancel" ImagePath="D:\Projects\VS10\Projects\TaskPanel\TaskPanel.UI\bin\Debug\Resources/Icons/TaskStates\Cancel.png" Flag="None" Priority="1" />
+      <TaskState ID="2" Name="Question" ImagePath="D:\Projects\VS10\Projects\TaskPanel\TaskPanel.UI\bin\Debug\Resources/Icons/TaskStates\Question.png" Flag="None" Priority="1" />
+      <TaskState ID="3" Name="Done" ImagePath="D:\Projects\VS10\Projects\TaskPanel\TaskPanel.UI\bin\Debug\Resources/Icons/TaskStates\Success.png" Flag="Completed" Priority="1" />
+      <TaskState ID="4" Name="Alert" ImagePath="D:\Projects\VS10\Projects\TaskPanel\TaskPanel.UI\bin\Debug\Resources/Icons/TaskStates\Alert.png" Flag="Initial" Priority="1" />
+      <TaskState ID="5" Name="Info" ImagePath="D:\Projects\VS10\Projects\TaskPanel\TaskPanel.UI\bin\Debug\Resources/Icons/TaskStates\Info.png" Flag="None" Priority="1" />
+      <TaskState ID="6" Name="Download" ImagePath="D:\Projects\VS10\Projects\TaskPanel\TaskPanel.UI\bin\Debug\Resources/Icons/TaskStates\Download.png" Flag="None" Priority="1" />
+      <TaskState ID="7" Name="Office" ImagePath="D:\Projects\VS10\Projects\TaskPanel\TaskPanel.UI\bin\Debug\Resources/Icons/TaskStates\AddressBook.png" Flag="None" Priority="1" />
+      <TaskState ID="8" Name="Web" ImagePath="D:\Projects\VS10\Projects\TaskPanel\TaskPanel.UI\bin\Debug\Resources/Icons/TaskStates\Earth.png" Flag="None" Priority="1" />
+    </TaskStates>
+    <Groups>
+      <Group ID="1" Name="Inbox" ImagePath="D:/Projects/VS10/Projects/TaskPanel/Resources/Icons/Inbox.png" Flag="Inbox" Priority="5" />
+      <Group ID="2" Name="TaskPanel" ImagePath="D:/Projects/VS10/Projects/TaskPanel/Resources/Icons/TaskPanel.png" Flag="None" Priority="2" />
+      <Group ID="3" Name="A4M33VIA" ImagePath="D:/Projects/VS10/Projects/TaskPanel/Resources/Icons/School.png" Flag="None" Priority="2" />
+      <Group ID="4" Name="A4M33PAL" ImagePath="D:/Projects/VS10/Projects/TaskPanel/Resources/Icons/School.png" Flag="None" Priority="3" />
+      <Group ID="5" Name="Test" ImagePath="D:/Projects/VS10/Projects/TaskPanel/Resources/Icons/ImportantFolder.png" Flag="None" Priority="1" />
+      <Group ID="6" Name="A4M33NUR" ImagePath="D:/Projects/VS10/Projects/TaskPanel/Resources/Icons/School.png" Flag="None" Priority="2" />
+      <Group ID="7" Name="Úkolovník" ImagePath="D:/Projects/VS10/Projects/TaskPanel/Resources/Icons/Others/alarm-bell-icon-32.png" Flag="None" Priority="1" />
+    </Groups>
+    <Tasks>
+      <Task ID="1" Content="Hello, World!" Created="634548978374428792" Modified="634556540519184802" GroupID="1" TaskStateID="3" UserID="1" Priority="1" />
+      <Task ID="2" Content="Complete TaskPanel" Created="634548978374538799" Modified="634579308500769211" Deadline="634602816000000000" GroupID="2" TaskStateID="1" UserID="1" Priority="1" />
+      <Task ID="4" Content="Newly created task 23:42" Created="634548978374558800" Modified="634556540447330692" GroupID="1" TaskStateID="3" UserID="1" Priority="1" />
+      <Task ID="12" Content="Vytvořit anketu!" Solution="Anketa vytvořena, rozesílá se." Created="634548978374618803" Modified="634548980425206090" GroupID="3" TaskStateID="3" UserID="1" Priority="1" />
+      <Task ID="13" Content="Vytvořit Hello, World! aplikaci na GAE" Created="634548978374638804" Modified="634564553331687969" GroupID="3" TaskStateID="3" UserID="1" Priority="1" />
+      <Task ID="14" Content="Jak toto nastylovat?" Solution="Já myslím, že dobrý!" Created="634548978374658805" Modified="634548978374658805" GroupID="2" TaskStateID="3" UserID="1" Priority="1" />
+      <Task ID="15" Content="Překvapit by však mohl fakt, že nikdo, snad krom toho, kdo balónky k obloze vypustil, netuší, jakou má ona stuha barvu. Je totiž tak lesklá, že za světla se v ní odráží nebe a za tmy zase není vidět vůbec." Created="634548978374688807" Modified="634572597128366934" GroupID="5" TaskStateID="4" UserID="1" Priority="1" />
+      <Task ID="16" Content="Vítr skoro nefouká a tak by se na první pohled mohlo zdát, že se balónky snad vůbec nepohybují. Jenom tak klidně levitují ve vzduchu. Jelikož slunce jasně září a na obloze byste od východu k západu hledali mráček marně, balónky působí jako jakási fata morgána uprostřed pouště." Created="634548978374698808" Modified="634555106748860780" GroupID="5" TaskStateID="2" UserID="1" Priority="1" />
+      <Task ID="17" Content="Proti slunci to vypadá, že se slunce pohybuje k západu rychleji než balónky, a možná to tak skutečně je. Nejeden filozof by mohl tvrdit, že balónky se sluncem závodí, ale fyzikové by to jistě vyvrátili. Z fyzikálního pohledu totiž balónky působí zcela nezajímavě." Created="634548978374748811" Modified="634555108285678681" GroupID="5" TaskStateID="2" UserID="1" Priority="1" />
+      <Task ID="18" Content="Zobrazovat tento dialog v hlavním panelu místo tasků?" Solution="ANO" Created="634548978374798813" Modified="634548978374798813" GroupID="2" TaskStateID="3" UserID="1" Priority="1" />
+      <Task ID="19" Content="Přidat do tasku nějaké zhodnocení?" Solution="ANO, solution" Created="634548978374848816" Modified="634548978374848816" GroupID="2" TaskStateID="3" UserID="1" Priority="1" />
+      <Task ID="20" Content="Možnost zobrazit všechny" Created="634548978374908820" Modified="634548978374908820" GroupID="2" TaskStateID="3" UserID="1" Priority="1" />
+      <Task ID="21" Content="Ukládat nastavení zobrazení (filtrované stavy)" Created="634548978374968823" Modified="634556657760429166" GroupID="2" TaskStateID="3" UserID="1" Priority="1" />
+      <Task ID="22" Content="Předpokládáný čas uzavření (+ nastavení přechodu do stavu pokud došel čas?)" Solution="Doplněn deadline" Created="634548978375018826" Modified="634564609255880893" GroupID="2" TaskStateID="2" UserID="1" Priority="1" />
+      <Task ID="23" Content="Filtrovat podle předpokládaného času uzavření" Created="634548978375158834" Modified="634555119605976165" GroupID="2" TaskStateID="2" UserID="1" Priority="1" />
+      <Task ID="24" Content="Ukládat datum vytvoření, modifikace ..." Created="634548978375208837" Modified="634549090676959552" GroupID="2" TaskStateID="3" UserID="1" Priority="1" />
+      <Task ID="25" Content="Sortování úkolů" Created="634548978375268840" Modified="634555114527915717" GroupID="2" TaskStateID="3" UserID="1" Priority="1" />
+      <Task ID="26" Content="Při vytváření skupiny/stavu nabídnout ze standartních ikon (local/web) a případně nechat brouzdat počítačem." Created="634548978375318843" Modified="634548978375318843" GroupID="2" TaskStateID="4" UserID="1" Priority="1" />
+      <Task ID="27" Content="Ikonku pro TaskPanel" Created="634548978375378847" Modified="634564562964138913" GroupID="2" TaskStateID="3" UserID="1" Priority="1" />
+      <Task ID="28" Content="Po změně stavu aktualizovat zda ještě porád patří do vyfiltrovaných!!" Created="634548978375438850" Modified="634555108683431432" GroupID="2" TaskStateID="3" UserID="1" Priority="1" />
+      <Task ID="29" Content="Otevření tasku na doubleclick" Created="634555115351922847" Modified="634555118259399146" GroupID="2" TaskStateID="3" UserID="1" Priority="1" />
+      <Task ID="30" Content="Možnost nastavení priority úkolu?&#xD;&#xA;Přitom možnost nastavení priority stavy -&gt; a nabídnout řazení podle téhle spočtené priority?" Solution="Priorita pro:&#xD;&#xA;-úkol&#xD;&#xA;-skupina&#xD;&#xA;-stav" Created="634555119479918955" Modified="634556541424796600" GroupID="2" TaskStateID="3" UserID="1" Priority="1" />
+      <Task ID="31" Content="Hover efekt po přejetí myší nad skupinou úkolů" Created="634555120322647157" Modified="634561340186422739" GroupID="2" TaskStateID="3" UserID="1" Priority="1" />
+      <Task ID="32" Content="Editace pro skupiny" Created="634555121088590966" Modified="634572655467483741" GroupID="2" TaskStateID="3" UserID="1" Priority="1" />
+      <Task ID="33" Content="Editace pro stavy" Created="634555121189966764" Modified="634578361810379050" GroupID="2" TaskStateID="3" UserID="1" Priority="1" />
+      <Task ID="34" Content="Stromové seskupení úkolů?" Created="634555121515295372" Modified="634564621611557597" GroupID="2" TaskStateID="2" UserID="1" Priority="2" />
+      <Task ID="35" Content="Lokalizace" Solution="Hotov:&#xD;&#xA;- config" Created="634556547354155740" Modified="634601659213068846" GroupID="2" TaskStateID="4" UserID="1" Priority="2.5" />
+      <Task ID="36" Content="Znemožnit použití ostatních tlačítek při editaci úkolu!" Created="634556667976103469" Modified="634562752946022183" GroupID="2" TaskStateID="3" UserID="1" Priority="2" />
+      <Task ID="37" Content="Zvýrazňovat property podle které se sortuje" Created="634556668496643242" Modified="634562850430823717" GroupID="2" TaskStateID="3" UserID="1" Priority="2" />
+      <Task ID="38" Content="Zpovoznit MESSAGE" Created="634561364046767472" Modified="634562752910300140" GroupID="2" TaskStateID="3" UserID="1" Priority="3" />
+      <Task ID="39" Content="D3&#xD;&#xA;-ověření na cílové skupině&#xD;&#xA; -popis cílů,setup,průběh(scénář),shrnutí(nálezy a doporučení)&#xD;&#xA; -vytvoření setupu (plánek osazení + testovací podmínky =&gt; možnost rekonstrukce testu)&#xD;&#xA; -provedení testu (poznámky během testu =&gt; shrnutí do závěru)&#xD;&#xA; -opravení do další verze&#xD;&#xA;&#xD;&#xA;-sledovat průchod uživatele rozhraním, říct &quot;změň si kontrast&quot; a sledovat jak pracuje" Created="634562803920654094" Modified="634572186721448677" GroupID="6" TaskStateID="3" UserID="1" Priority="1" />
+      <Task ID="40" Content="D4&#xD;&#xA;-opravy z výzkumu v D3&#xD;&#xA;-pokud D3 hardcore, pak nemusí být až tak našlapaná" Created="634562850320445354" Modified="634562850320289354" GroupID="6" TaskStateID="4" UserID="1" Priority="1" />
+      <Task ID="41" Content="Přidat možnost rychle napsat řešení při pravém kliku na State?" Created="634562850738412502" Modified="634601659364347499" GroupID="2" TaskStateID="2" UserID="1" Priority="1.5" />
+      <Task ID="42" Content="Vyměnit tento editor za RichEditor + XAML" Created="634562851215578650" Modified="634562851312003287" GroupID="2" TaskStateID="4" UserID="1" Priority="2" />
+      <Task ID="43" Content="Možnost otevírat úkoly v novém okně." Created="634564553090864194" Modified="634572655149495553" GroupID="2" TaskStateID="3" UserID="1" Priority="2" />
+      <Task ID="44" Content="Konfigurační okno + spojit se souborem pro aktuální nastavení uživatele" Created="634564553241262797" Modified="634572655226959984" GroupID="2" TaskStateID="3" UserID="1" Priority="2" />
+      <Task ID="45" Content="Řazení pro skupiny" Created="634564554267891516" Modified="634586823472426713" GroupID="2" TaskStateID="3" UserID="1" Priority="1" />
+      <Task ID="46" Content="Nastavení oken:&#xD;&#xA;-na taskbaru&#xD;&#xA;-ve window listu&#xD;&#xA;-trayicon" Created="634564568557888857" Modified="634572669102923643" GroupID="2" TaskStateID="3" UserID="1" Priority="2" />
+      <Task ID="47" Content="Slider pro prioritu?" Created="634564568745949614" Modified="634572655318205203" GroupID="2" TaskStateID="3" UserID="1" Priority="1" />
+      <Task ID="49" Content="ADD v konstantním čase" Created="634565261348626732" Modified="634565728460514003" GroupID="4" TaskStateID="3" UserID="1" Priority="1" />
+      <Task ID="50" Content="Přidávat číslo cyklu ve kterém bylo sbaleno" Created="634565261614291927" Modified="634565373686292079" GroupID="4" TaskStateID="3" UserID="1" Priority="1" />
+      <Task ID="51" Content="Zprovoznit editaci entit" Created="634565465882575404" Modified="634565466099787828" GroupID="3" TaskStateID="4" UserID="1" Priority="2" />
+      <Task ID="52" Content="Servisky pro jízdy" Created="634565466059765539" Modified="634565466059745538" GroupID="3" TaskStateID="4" UserID="1" Priority="1" />
+      <Task ID="53" Content="Vymyslet lokální uložiště pro nabízené výchozí ikony" Solution="Resources/Icons/*" Created="634572657590345162" Modified="634578371976110497" GroupID="2" TaskStateID="3" UserID="1" Priority="3" />
+      <Task ID="54" Content="Opravit přidávání z nového okna!!" Created="634572659194746928" Modified="634578361641289379" GroupID="2" TaskStateID="3" UserID="1" Priority="4" />
+      <Task ID="55" Content="Vylepšit zobrazování zpáv" Created="634572674907175628" Modified="634572674954258321" GroupID="2" TaskStateID="4" UserID="1" Priority="1" />
+      <Task ID="56" Content="Verzování dat a možnost se vrátit zpět (například při kliku na &quot;Close&quot;)" Created="634572675511110171" Modified="634601659320074966" GroupID="2" TaskStateID="4" UserID="1" Priority="1.5" />
+      <Task ID="57" Content="Vyřešit předávání parametrů přes QueryString" Created="634573434696785632" Modified="634573434696135595" GroupID="7" TaskStateID="4" UserID="1" Priority="3" />
+      <Task ID="58" Content="Opakované úkoly" Created="634573435054816111" Modified="634573435054776108" GroupID="7" TaskStateID="4" UserID="1" Priority="5" />
+      <Task ID="59" Content="Groupování tasků?" Created="634573436588723845" Modified="634573436588693843" GroupID="2" TaskStateID="2" UserID="1" Priority="2" />
+      <Task ID="60" Content="Novy ukol :)" Created="634574320373870312" Modified="634574320525198968" GroupID="5" TaskStateID="4" UserID="1" Priority="1" />
+      <Task ID="61" Content="Baf!" Created="634578361574415554" Modified="634578361574205542" GroupID="5" TaskStateID="4" UserID="1" Priority="1" />
+      <Task ID="62" Content="Založení nového souboru pro TaskPanel!" Created="634578372182892324" Modified="634586418866956705" GroupID="2" TaskStateID="3" UserID="1" Priority="4" />
+      <Task ID="63" Content="Zálohování souboru před ukládáním" Created="634579271966019543" Modified="634579274471722861" GroupID="2" TaskStateID="3" UserID="1" Priority="1" />
+      <Task ID="64" Content="Označovat úkoly s vyplněným datem dokončení" Created="634579309258882572" Modified="634579309258662560" GroupID="2" TaskStateID="2" UserID="1" Priority="1" />
+      <Task ID="65" Content="TaskPanel.Configuration do IsolatedStorage" Created="634586419176644418" Modified="634586419176414405" GroupID="2" TaskStateID="4" UserID="1" Priority="4" />
+      <Task ID="66" Content="Šifrování proTaskPanel.xml" Created="634586419357114740" Modified="634586823294606542" GroupID="2" TaskStateID="4" UserID="1" Priority="4" />
+      <Task ID="67" Content="Instalátor + ClickOnce" Created="634586419552775931" Modified="634586419552745930" GroupID="2" TaskStateID="4" UserID="1" Priority="1" />
+    </Tasks>
+  </User>
+</TaskPanel>

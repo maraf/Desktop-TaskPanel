@@ -1,0 +1,16 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<TaskPanel>
+  <User ID="0" UserName="mara" Password="1111">
+    <TaskStates>
+      <TaskState ID="1" Name="New Task" ImagePath="D:\Projects\VS10\Projects\TaskPanel\TaskPanel.UI\bin\Debug\Resources/Icons/TaskStates\Delete.png" Flag="Initial" Priority="1.5" />
+      <TaskState ID="2" Name="Completed" ImagePath="D:\Projects\VS10\Projects\TaskPanel\TaskPanel.UI\bin\Debug\Resources/Icons/TaskStates\Success.png" Flag="Completed" Priority="1.5" />
+      <TaskState ID="3" Name="TEST" ImagePath="D:\Projects\VS10\Projects\TaskPanel\TaskPanel.UI\bin\Debug\Resources/Icons/TaskStates\Alert.png" Flag="None" Priority="1.5" />
+    </TaskStates>
+    <Groups>
+      <Group ID="1" Name="Inbox" ImagePath="D:\Projects\VS10\Projects\TaskPanel\TaskPanel.UI\bin\Debug\Resources/Icons/Groups\Inbox.png" Flag="Inbox" Priority="1.5" />
+    </Groups>
+    <Tasks>
+      <Task ID="1" Content="Test" Created="634586380288980171" Modified="634586380343163270" GroupID="1" TaskStateID="2" UserID="0" Priority="1.5" />
+    </Tasks>
+  </User>
+</TaskPanel>

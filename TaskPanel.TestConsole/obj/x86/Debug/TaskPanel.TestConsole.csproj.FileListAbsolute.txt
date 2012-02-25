@@ -1,0 +1,15 @@
+D:\Projects\VS10\Projects\TaskPanel\TaskPanel.TestConsole\obj\x86\Debug\ResolveAssemblyReference.cache
+D:\Projects\VS10\Projects\TaskPanel\TaskPanel.TestConsole\bin\Debug\TaskPanel.TestConsole.exe
+D:\Projects\VS10\Projects\TaskPanel\TaskPanel.TestConsole\bin\Debug\TaskPanel.TestConsole.pdb
+D:\Projects\VS10\Projects\TaskPanel\TaskPanel.TestConsole\bin\Debug\TaskPanel.Core.dll
+D:\Projects\VS10\Projects\TaskPanel\TaskPanel.TestConsole\bin\Debug\DesktopCore.dll
+D:\Projects\VS10\Projects\TaskPanel\TaskPanel.TestConsole\bin\Debug\TaskPanel.Core.pdb
+D:\Projects\VS10\Projects\TaskPanel\TaskPanel.TestConsole\bin\Debug\DesktopCore.pdb
+D:\Projects\VS10\Projects\TaskPanel\TaskPanel.TestConsole\obj\x86\Debug\TaskPanel.TestConsole.exe
+D:\Projects\VS10\Projects\TaskPanel\TaskPanel.TestConsole\obj\x86\Debug\TaskPanel.TestConsole.pdb
+D:\Projects\VS10\Projects\TaskPanel\TaskPanel.TestConsole\bin\Debug\TaskPanel.TestConsole.exe.config
+D:\Projects\VS10\Projects\TaskPanel\TaskPanel.TestConsole\bin\Debug\Ninject.dll
+D:\Projects\VS10\Projects\TaskPanel\TaskPanel.TestConsole\bin\Debug\Ninject.pdb
+D:\Projects\VS10\Projects\TaskPanel\TaskPanel.TestConsole\bin\Debug\Ninject.xml
+D:\Projects\VS10\Projects\TaskPanel\TaskPanel.TestConsole\bin\Debug\DesktopCore.Resources.dll
+D:\Projects\VS10\Projects\TaskPanel\TaskPanel.TestConsole\bin\Debug\DesktopCore.Resources.pdb
